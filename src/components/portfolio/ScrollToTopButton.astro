@@ -1,0 +1,40 @@
+---
+import ArrowUpIcon from '../icons/ArrowUpIcon.astro';
+---
+
+<button
+	type="button"
+	class="pointer-events-none fixed bottom-5 right-5 z-30 grid size-12 translate-y-2 place-items-center rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.86)] text-[rgb(var(--text))] opacity-0 shadow-[0_18px_50px_rgb(var(--shadow))] backdrop-blur transition hover:bg-[rgb(var(--surface))] focus-visible:pointer-events-auto focus-visible:translate-y-0 focus-visible:opacity-100 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--accent))] data-[visible=true]:pointer-events-auto data-[visible=true]:translate-y-0 data-[visible=true]:opacity-100"
+	aria-label="Volver arriba"
+	aria-hidden="true"
+	data-scroll-to-top
+	data-visible="false"
+	tabindex="-1"
+>
+	<ArrowUpIcon class="size-5" />
+</button>
+
+<script>
+	const scrollToTopButton = document.querySelector<HTMLButtonElement>('[data-scroll-to-top]');
+	const topNavigation = document.querySelector<HTMLElement>('[data-top-navigation]');
+
+	if (scrollToTopButton && topNavigation) {
+		const setVisibility = (isVisible: boolean) => {
+			scrollToTopButton.dataset.visible = String(isVisible);
+			scrollToTopButton.ariaHidden = String(!isVisible);
+			scrollToTopButton.tabIndex = isVisible ? 0 : -1;
+		};
+
+		const observer = new IntersectionObserver(([entry]) => {
+			setVisibility(!entry?.isIntersecting);
+		});
+
+		observer.observe(topNavigation);
+
+		scrollToTopButton.addEventListener('click', () => {
+			const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+			window.scrollTo({ top: 0, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+		});
+	}
+</script>

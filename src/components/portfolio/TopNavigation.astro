@@ -1,0 +1,68 @@
+---
+import ChevronDownIcon from '../icons/ChevronDownIcon.astro';
+import { navigationItems } from '../../data/portfolio';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<div class="relative mb-10 flex items-start justify-between gap-3 sm:mb-16 sm:items-center" data-top-navigation>
+	<details class="group min-w-0 sm:hidden" data-mobile-menu>
+		<summary class="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.78)] px-4 text-sm font-bold text-[rgb(var(--text))] shadow-[0_18px_50px_rgb(var(--shadow))] transition-colors hover:bg-[rgb(var(--surface))] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--accent))]">
+			<span>Menú</span>
+			<ChevronDownIcon class="size-4 transition-transform group-open:rotate-180" />
+		</summary>
+
+		<nav class="absolute left-0 right-0 top-14 z-20 hidden flex-col gap-1 rounded-[24px] border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-2 text-sm text-[rgb(var(--subtle))] shadow-[0_24px_70px_rgb(var(--shadow))] group-open:flex" aria-label="Navegación principal móvil">
+			{navigationItems.map((item) => (
+				<a
+					class="rounded-full px-3.5 py-2.5 no-underline transition-colors hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--text))] focus-visible:bg-[rgb(var(--surface))] focus-visible:text-[rgb(var(--text))] focus-visible:outline-none"
+					href={item.href}
+				>
+					{item.label}
+				</a>
+			))}
+		</nav>
+	</details>
+
+	<nav class="hidden min-w-0 flex-1 gap-2 text-[0.95rem] text-[rgb(var(--subtle))] sm:flex" aria-label="Navegación principal">
+		{navigationItems.map((item) => (
+			<a
+				class="rounded-full px-3.5 py-2.5 no-underline transition-colors hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--text))] focus-visible:bg-[rgb(var(--surface))] focus-visible:text-[rgb(var(--text))] focus-visible:outline-none"
+				href={item.href}
+			>
+				{item.label}
+			</a>
+		))}
+	</nav>
+
+	<ThemeToggle />
+</div>
+
+<script>
+	const mobileMenu = document.querySelector<HTMLDetailsElement>('[data-mobile-menu]');
+
+	if (mobileMenu) {
+		const closeMobileMenu = () => {
+			mobileMenu.open = false;
+		};
+
+		mobileMenu.querySelectorAll('a').forEach((link) => {
+			link.addEventListener('click', closeMobileMenu);
+		});
+
+		document.addEventListener('keydown', (event) => {
+			if (event.key === 'Escape') {
+				closeMobileMenu();
+			}
+		});
+
+		document.addEventListener('pointerdown', (event) => {
+			if (!mobileMenu.open || !(event.target instanceof Node)) {
+				return;
+			}
+
+			if (!mobileMenu.contains(event.target)) {
+				closeMobileMenu();
+			}
+		});
+	}
+</script>

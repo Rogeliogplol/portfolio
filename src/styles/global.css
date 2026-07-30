@@ -1,0 +1,194 @@
+@import "tailwindcss";
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-ExtraLight.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-ExtraLight.ttf") format("truetype");
+	font-weight: 200;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-ExtraLightItalic.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-ExtraLightItalic.ttf") format("truetype");
+	font-weight: 200;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-Light.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-Light.ttf") format("truetype");
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-LightItalic.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-LightItalic.ttf") format("truetype");
+	font-weight: 300;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-Regular.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-Italic.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-Italic.ttf") format("truetype");
+	font-weight: 400;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-Medium.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-Medium.ttf") format("truetype");
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-MediumItalic.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-MediumItalic.ttf") format("truetype");
+	font-weight: 500;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-SemiBold.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-SemiBold.ttf") format("truetype");
+	font-weight: 600;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-SemiBoldItalic.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-SemiBoldItalic.ttf") format("truetype");
+	font-weight: 600;
+	font-style: italic;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-Bold.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-Bold.ttf") format("truetype");
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Cascadia Code";
+	src:
+		url("/fonts/cascadia-code/CascadiaCode-BoldItalic.woff2") format("woff2"),
+		url("/fonts/cascadia-code/CascadiaCode-BoldItalic.ttf") format("truetype");
+	font-weight: 700;
+	font-style: italic;
+	font-display: swap;
+}
+
+@theme {
+	--font-sans: "Cascadia Code", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace;
+}
+
+@layer base {
+	:root {
+		color-scheme: light;
+		font-family: var(--font-sans);
+		--background: 250 250 250;
+		--background-start: 255 255 255;
+		--background-end: 239 240 241;
+		--background-glow: 64 120 242;
+		--text: 56 58 66;
+		--text-soft: 75 78 89;
+		--muted: 105 108 119;
+		--subtle: 92 99 112;
+		--accent: 64 120 242;
+		--surface: 255 255 255;
+		--border: 56 58 66 / 0.14;
+		--border-strong: 56 58 66;
+		--shadow: 56 58 66 / 0.1;
+		background: rgb(var(--background));
+		color: rgb(var(--text));
+	}
+
+	:root[data-theme='dark'] {
+		color-scheme: dark;
+		--background: 31 35 41;
+		--background-start: 40 44 52;
+		--background-end: 24 26 31;
+		--background-glow: 97 175 239;
+		--text: 171 178 191;
+		--text-soft: 190 197 210;
+		--muted: 130 137 151;
+		--subtle: 157 165 180;
+		--accent: 97 175 239;
+		--surface: 33 37 43;
+		--border: 171 178 191 / 0.14;
+		--border-strong: 171 178 191;
+		--shadow: 0 0 0 / 0.32;
+	}
+
+	* {
+		box-sizing: border-box;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+
+	body {
+		min-width: 320px;
+		min-height: 100vh;
+		margin: 0;
+		background:
+			radial-gradient(circle at top left, rgb(var(--background-glow) / 0.18), transparent 34rem),
+			linear-gradient(180deg, rgb(var(--background-start)) 0%, rgb(var(--background-end)) 100%);
+		transition:
+			background-color 180ms ease,
+			color 180ms ease;
+	}
+
+	a {
+		color: inherit;
+	}
+}

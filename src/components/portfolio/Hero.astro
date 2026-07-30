@@ -1,0 +1,40 @@
+---
+import ProfilePhoto from './ProfilePhoto.astro';
+import TopNavigation from './TopNavigation.astro';
+---
+
+<header class="py-7 pb-12 sm:pb-18" aria-labelledby="page-title">
+	<TopNavigation />
+
+	<div class="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_180px] lg:grid-cols-[minmax(0,1fr)_180px_340px] lg:gap-10">
+		<section class="max-w-3xl">
+			<p class="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-[rgb(var(--accent))]">Granada, España</p>
+			<h1 id="page-title" class="mb-5 max-w-4xl text-2xl font-bold leading-[0.92] tracking-[-0.075em] text-[rgb(var(--text))] sm:text-4xl lg:text-5xl">
+				Rogelio García Peña
+			</h1>
+			<p class="mb-5 text-2xl font-semibold leading-tight text-[rgb(var(--text-soft))] sm:text-3xl">
+				Desarrollador Full Stack con perfil de Ingeniería del Software
+			</p>
+			<p class="text-lg leading-8 text-[rgb(var(--muted))]">
+				Construyo aplicaciones web, productos internos y soluciones CMS con foco en criterio técnico,
+				mantenibilidad y entrega de valor para negocio. Mi trayectoria combina frontend moderno,
+				backend PHP, Strapi, integraciones y sistemas con reglas de negocio complejas.
+			</p>
+			<div class="mt-8 flex flex-wrap gap-3" aria-label="Acciones principales">
+				<a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[rgb(var(--border-strong))] bg-[rgb(var(--text))] px-5 font-bold text-[rgb(var(--background-start))] no-underline" href="#contacto">Contactar</a>
+				<a class="inline-flex min-h-12 items-center justify-center rounded-full border border-[rgb(var(--border-strong))] bg-[rgb(var(--surface)/0.72)] px-5 font-bold text-[rgb(var(--text))] no-underline" href="#experiencia">Ver experiencia</a>
+			</div>
+		</section>
+
+		<ProfilePhoto />
+
+		<aside class="rounded-[28px] border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.72)] p-7 shadow-[0_24px_70px_rgb(var(--shadow))] md:col-span-2 lg:col-span-1" aria-label="Resumen profesional">
+			<p class="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-[rgb(var(--accent))]">Perfil</p>
+			<ul class="m-0 list-disc space-y-3 pl-5 leading-relaxed text-[rgb(var(--subtle))]">
+				<li>Full Stack Developer desde 2016.</li>
+				<li>Experiencia en productos B2B, CMS, marketing automation.</li>
+				<li>Tech Lead en los últimos proyectos.</li>
+			</ul>
+		</aside>
+	</div>
+</header>

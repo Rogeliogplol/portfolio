@@ -1,0 +1,15 @@
+---
+import { profileParagraphs } from '../../data/portfolio';
+---
+
+<section id="perfil" class="grid gap-12 border-t border-[rgb(var(--border))] py-11 sm:py-16 lg:grid-cols-[0.8fr_1.2fr]">
+	<div>
+		<p class="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-[rgb(var(--accent))]">Perfil profesional</p>
+		<h2 class="mb-0 text-4xl font-bold leading-none tracking-[-0.045em] text-[rgb(var(--text))] sm:text-5xl">
+			Desarrollo full stack orientado a producto y negocio
+		</h2>
+	</div>
+	<div class="space-y-4">
+		{profileParagraphs.map((paragraph) => <p class="text-lg leading-8 text-[rgb(var(--muted))]">{paragraph}</p>)}
+	</div>
+</section>
