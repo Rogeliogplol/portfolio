@@ -168,6 +168,7 @@
 
 	html {
 		scroll-behavior: smooth;
+		scroll-padding-top: 5.5rem;
 	}
 
 	@media (prefers-reduced-motion: reduce) {
@@ -179,6 +180,8 @@
 	body {
 		min-width: 320px;
 		min-height: 100vh;
+		/* Container units exclude the viewport scrollbar, unlike 100vw. */
+		container-type: inline-size;
 		margin: 0;
 		background:
 			radial-gradient(circle at top left, rgb(var(--background-glow) / 0.18), transparent 34rem),
@@ -190,5 +193,120 @@
 
 	a {
 		color: inherit;
+	}
+}
+
+/* The navigation is a sibling of the hero so its sticky range spans the page. */
+.site-navigation {
+	border-bottom: 1px solid rgb(var(--border));
+	background: rgb(var(--background) / 0.94);
+	backdrop-filter: blur(16px);
+}
+
+[data-reveal] {
+	transition: opacity 650ms ease, transform 650ms ease;
+}
+
+[data-reveal].reveal-pending {
+	opacity: 0;
+	transform: translateY(24px);
+}
+
+[data-reveal].reveal-pending:focus-within {
+	opacity: 1;
+	transform: none;
+}
+
+/* Body container units include the content viewport without its scrollbar. */
+.full-bleed {
+	width: 100cqw;
+	margin-inline-start: calc(50% - 50cqw);
+}
+
+.section-inner {
+	width: min(1120px, calc(100% - 24px));
+	margin-inline: auto;
+}
+
+@media (min-width: 640px) {
+	.section-inner {
+		width: min(1120px, calc(100% - 32px));
+	}
+}
+
+.technology-marquee {
+	width: 100%;
+	overflow: hidden;
+	mask-image: linear-gradient(to right, transparent, black 4%, black 96%, transparent);
+}
+
+.technology-marquee-track {
+	display: flex;
+	width: max-content;
+	animation: technology-drift 65s linear infinite;
+}
+
+.technology-marquee:hover .technology-marquee-track,
+.technology-marquee:focus-within .technology-marquee-track {
+	animation-play-state: paused;
+}
+
+.technology-marquee-group {
+	display: flex;
+	flex: none;
+	align-items: center;
+	gap: 2rem;
+	margin: 0;
+	padding: 0 2rem 0 0;
+	list-style: none;
+}
+
+.technology-label {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.75rem;
+	white-space: nowrap;
+	font-weight: 600;
+	color: rgb(var(--text-soft));
+}
+
+.technology-label::before {
+	content: '•';
+	color: rgb(var(--accent));
+}
+
+@keyframes technology-drift {
+	to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+	[data-reveal] {
+		transition: none;
+	}
+
+	[data-reveal].reveal-pending {
+		opacity: 1;
+		transform: none;
+	}
+
+	.technology-marquee {
+		overflow: visible;
+		mask-image: none;
+	}
+
+	.technology-marquee-track {
+		display: block;
+		width: auto;
+		animation: none;
+	}
+
+	.technology-marquee-group {
+		flex-wrap: wrap;
+		gap: 0.75rem 2rem;
+		padding: 0 1rem;
+	}
+
+	.technology-marquee-group[aria-hidden='true'] {
+		display: none;
 	}
 }

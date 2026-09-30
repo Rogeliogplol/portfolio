@@ -2,29 +2,31 @@
 import { contactItems } from '../../data/portfolio';
 ---
 
-<section id="contacto" class="grid gap-8 rounded-[28px] border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.72)] p-8 shadow-[0_24px_70px_rgb(var(--shadow))] lg:grid-cols-[minmax(0,1fr)_360px]" aria-labelledby="contact-title">
-	<div>
-		<p class="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-[rgb(var(--accent))]">Contacto</p>
-		<h2 id="contact-title" class="mb-4 text-4xl font-bold leading-none tracking-[-0.045em] text-[rgb(var(--text))] sm:text-5xl">
-			Disponible para nuevas oportunidades
-		</h2>
-		<p class="text-lg leading-8 text-[rgb(var(--muted))]">
-			Portfolio orientado a búsqueda de empleo. Puedes contactar conmigo por correo o LinkedIn.
-			También puedes descargar mi CV en PDF.
-		</p>
-	</div>
-	<div class="flex content-start flex-wrap gap-2.5" aria-label="Enlaces de contacto">
-		{contactItems.map((item) => {
-			const content = `${item.label} · ${item.value}`;
-			const className = "inline-flex min-h-10 items-center rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.66)] px-3.5 font-semibold text-[rgb(var(--text-soft))] no-underline transition-colors hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--text))] focus-visible:bg-[rgb(var(--surface))] focus-visible:text-[rgb(var(--text))] focus-visible:outline-none";
+<section id="contacto" class="full-bleed border-t border-[rgb(var(--border))] pt-11 sm:pt-16" aria-labelledby="contact-title">
+	<div class="section-inner grid gap-8 rounded-[28px] border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.72)] p-8 shadow-[0_24px_70px_rgb(var(--shadow))] lg:grid-cols-[minmax(0,1fr)_360px]">
+		<div data-reveal>
+			<p class="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-[rgb(var(--accent))]">Contacto</p>
+			<h2 id="contact-title" class="mb-4 text-4xl font-bold leading-none tracking-[-0.045em] text-[rgb(var(--text))] sm:text-5xl">
+				Disponible para nuevas oportunidades
+			</h2>
+			<p class="text-lg leading-8 text-[rgb(var(--muted))]">
+				Portfolio orientado a búsqueda de empleo. Puedes contactar conmigo por correo o LinkedIn.
+				También puedes descargar mi CV en PDF.
+			</p>
+		</div>
+		<div class="flex content-start flex-wrap gap-2.5" aria-label="Enlaces de contacto">
+			{contactItems.map((item) => {
+				const content = `${item.label} · ${item.value}`;
+				const className = "inline-flex min-h-10 items-center rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.66)] px-3.5 font-semibold text-[rgb(var(--text-soft))] no-underline transition-colors hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--text))] focus-visible:bg-[rgb(var(--surface))] focus-visible:text-[rgb(var(--text))] focus-visible:outline-none";
 
-			return item.href ? (
-				<a class={className} href={item.href} download={item.download} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined}>
-					{content}
-				</a>
-			) : (
-				<span class={className}>{content}</span>
-			);
-		})}
+				return item.href ? (
+					<a data-reveal class={className} href={item.href} download={item.download} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined}>
+						{content}
+					</a>
+				) : (
+					<span data-reveal class={className}>{content}</span>
+				);
+			})}
+		</div>
 	</div>
 </section>

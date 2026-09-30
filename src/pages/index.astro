@@ -5,16 +5,22 @@ import ExperienceTimeline from '../components/portfolio/ExperienceTimeline.astro
 import Hero from '../components/portfolio/Hero.astro';
 import ProfileSection from '../components/portfolio/ProfileSection.astro';
 import TechnologySection from '../components/portfolio/TechnologySection.astro';
+import TopNavigation from '../components/portfolio/TopNavigation.astro';
 import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout>
-	<main class="mx-auto w-[min(1120px,calc(100%-24px))] py-6 pb-14 sm:w-[min(1120px,calc(100%-32px))]">
+	<div class="site-navigation sticky top-0 z-40">
+		<div class="mx-auto w-[min(1120px,calc(100%-24px))] sm:w-[min(1120px,calc(100%-32px))]">
+			<TopNavigation />
+		</div>
+	</div>
+	<main class="mx-auto w-[min(1120px,calc(100%-24px))] pb-14 sm:w-[min(1120px,calc(100%-32px))]">
 		<Hero />
-		<ProfileSection />
-		<TechnologySection />
+		<div data-reveal><ProfileSection /></div>
+		<div data-reveal><TechnologySection /></div>
 		<ExperienceTimeline />
-		<EducationSection />
+		<div data-reveal><EducationSection /></div>
 		<ContactSection />
 	</main>
 </Layout>

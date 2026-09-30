@@ -3,24 +3,26 @@ import SectionHeading from './SectionHeading.astro';
 import { experience } from '../../data/portfolio';
 ---
 
-<section id="experiencia" class="border-t border-[rgb(var(--border))] py-11 sm:py-16" aria-labelledby="experience-title">
-	<SectionHeading kicker="Experiencia y proyectos" title="Trayectoria profesional" id="experience-title" />
+<section id="experiencia" class="full-bleed border-t border-[rgb(var(--border))] py-11 sm:py-16" aria-labelledby="experience-title">
+	<div class="section-inner">
+		<div data-reveal><SectionHeading kicker="Experiencia y proyectos" title="Trayectoria profesional" id="experience-title" /></div>
 
-	<div class="grid gap-4.5">
-		{experience.map((item) => (
-			<article class="grid gap-7 rounded-[28px] border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.72)] p-7 shadow-[0_24px_70px_rgb(var(--shadow))] lg:grid-cols-[260px_minmax(0,1fr)]">
-				<div>
-					<p class="mb-2 text-[0.95rem] font-bold text-[rgb(var(--accent))]">{item.period}</p>
-					<strong class="block text-lg text-[rgb(var(--text))]">{item.company}</strong>
-				</div>
-				<div>
-					<h3 class="mb-3 text-2xl font-bold tracking-[-0.02em] text-[rgb(var(--text))]">{item.role}</h3>
-					<p class="text-lg leading-8 text-[rgb(var(--muted))]">{item.description}</p>
-					<ul class="mt-4 list-disc space-y-2.5 pl-5 leading-relaxed text-[rgb(var(--subtle))]">
-						{item.projects.map((project) => <li>{project}</li>)}
-					</ul>
-				</div>
-			</article>
-		))}
+		<div class="grid gap-4.5">
+			{experience.map((item) => (
+				<article data-reveal class="grid gap-7 rounded-[28px] border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.72)] p-7 shadow-[0_24px_70px_rgb(var(--shadow))] lg:grid-cols-[260px_minmax(0,1fr)]">
+					<div>
+						<p class="mb-2 text-[0.95rem] font-bold text-[rgb(var(--accent))]">{item.period}</p>
+						<strong class="block text-lg text-[rgb(var(--text))]">{item.company}</strong>
+					</div>
+					<div>
+						<h3 class="mb-3 text-2xl font-bold tracking-[-0.02em] text-[rgb(var(--text))]">{item.role}</h3>
+						<p class="text-lg leading-8 text-[rgb(var(--muted))]">{item.description}</p>
+						<ul class="mt-4 list-disc space-y-2.5 pl-5 leading-relaxed text-[rgb(var(--subtle))]">
+							{item.projects.map((project) => <li>{project}</li>)}
+						</ul>
+					</div>
+				</article>
+			))}
+		</div>
 	</div>
 </section>

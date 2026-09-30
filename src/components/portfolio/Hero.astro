@@ -1,15 +1,13 @@
 ---
 import ProfilePhoto from './ProfilePhoto.astro';
-import TopNavigation from './TopNavigation.astro';
 ---
 
-<header class="py-7 pb-12 sm:pb-18" aria-labelledby="page-title">
-	<TopNavigation />
+<header class="relative py-14 pb-18 sm:py-20 sm:pb-24" aria-labelledby="page-title" data-top-navigation>
 
 	<div class="grid items-start gap-8 md:grid-cols-[minmax(0,1fr)_180px] lg:grid-cols-[minmax(0,1fr)_180px_340px] lg:gap-10">
 		<section class="max-w-3xl">
 			<p class="mb-3 text-xs font-bold uppercase tracking-[0.12em] text-[rgb(var(--accent))]">Granada, España</p>
-			<h1 id="page-title" class="mb-5 max-w-4xl text-2xl font-bold leading-[0.92] tracking-[-0.075em] text-[rgb(var(--text))] sm:text-4xl lg:text-5xl">
+			<h1 id="page-title" class="mb-6 max-w-4xl text-4xl font-bold leading-[1.05] tracking-[-0.075em] text-[rgb(var(--text))] sm:text-5xl lg:text-6xl">
 				Rogelio García Peña
 			</h1>
 			<p class="mb-5 text-2xl font-semibold leading-tight text-[rgb(var(--text-soft))] sm:text-3xl">

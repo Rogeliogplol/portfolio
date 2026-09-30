@@ -1,15 +1,19 @@
 ---
-import SectionHeading from './SectionHeading.astro';
 import { technologies } from '../../data/portfolio';
 ---
 
-<section class="border-t border-[rgb(var(--border))] py-11 sm:py-16" aria-labelledby="skills-title">
-	<SectionHeading kicker="Tecnologías" title="Stack y herramientas habituales" id="skills-title" />
-	<div class="flex flex-wrap gap-2.5">
-		{technologies.map((technology) => (
-			<span class="inline-flex min-h-10 items-center rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.66)] px-3.5 font-semibold text-[rgb(var(--text-soft))]">
-				{technology}
-			</span>
-		))}
+<section class="full-bleed technology-section border-t border-[rgb(var(--border))] py-11 sm:py-16" aria-labelledby="technology-title">
+	<div class="section-inner">
+		<h2 id="technology-title" class="mb-6 text-xs font-bold uppercase tracking-[0.12em] text-[rgb(var(--accent))]">TECNOLOGÍAS</h2>
+	</div>
+	<div class="technology-marquee">
+		<div class="technology-marquee-track">
+			<ul class="technology-marquee-group">
+				{technologies.map((technology) => <li><span class="technology-label">{technology}</span></li>)}
+			</ul>
+			<ul class="technology-marquee-group" aria-hidden="true">
+				{technologies.map((technology) => <li><span class="technology-label">{technology}</span></li>)}
+			</ul>
+		</div>
 	</div>
 </section>

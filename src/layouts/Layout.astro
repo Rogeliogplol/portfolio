@@ -25,7 +25,6 @@ const {
 		<script is:inline>
 			let storedTheme = null;
 			let systemTheme = 'light';
-
 			try {
 				storedTheme = localStorage.getItem('theme');
 			} catch {
@@ -47,5 +46,9 @@ const {
 	<body>
 		<slot />
 		<ScrollToTopButton />
+		<script>
+			import { initializeScrollReveal } from '../utils/scrollReveal';
+			initializeScrollReveal();
+		</script>
 	</body>
 </html>
