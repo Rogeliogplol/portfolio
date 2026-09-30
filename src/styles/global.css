@@ -203,6 +203,15 @@
 	backdrop-filter: blur(16px);
 }
 
+.section-navigation-link[aria-current='location'] {
+	/* A background stroke stays straight inside the rounded hover/focus pill. */
+	background-image: linear-gradient(rgb(var(--accent)), rgb(var(--accent)));
+	background-position: center bottom;
+	background-repeat: no-repeat;
+	background-size: calc(100% - 1.75rem) 2px;
+	color: rgb(var(--text));
+}
+
 [data-reveal] {
 	transition: opacity 650ms ease, transform 650ms ease;
 }

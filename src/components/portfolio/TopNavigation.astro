@@ -1,20 +1,25 @@
 ---
 import ChevronDownIcon from '../icons/ChevronDownIcon.astro';
+import HomeIcon from '../icons/HomeIcon.astro';
 import { navigationItems } from '../../data/portfolio';
 import ThemeToggle from './ThemeToggle.astro';
 ---
 
-<div class="relative flex min-h-16 items-center justify-between gap-3 py-2 sm:min-h-18">
-	<details class="group min-w-0 sm:hidden" data-mobile-menu>
-		<summary class="inline-flex min-h-11 cursor-pointer list-none items-center gap-2 rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.78)] px-4 text-sm font-bold text-[rgb(var(--text))] shadow-[0_18px_50px_rgb(var(--shadow))] transition-colors hover:bg-[rgb(var(--surface))] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--accent))]">
-			<span>Menú</span>
-			<ChevronDownIcon class="size-4 transition-transform group-open:rotate-180" />
+<div class="relative flex min-h-16 items-center justify-between gap-3 py-2 sm:min-h-18" data-top-navigation>
+	<a href="#" aria-label="Volver al inicio" class="inline-flex size-11 shrink-0 items-center justify-center rounded-2xl focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--accent))]">
+		<HomeIcon class="size-9" />
+	</a>
+
+	<details class="group min-w-0 flex-1 sm:hidden" data-mobile-menu>
+		<summary class="inline-flex min-h-11 max-w-full cursor-pointer list-none items-center gap-2 rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.78)] px-4 text-sm font-bold text-[rgb(var(--text))] shadow-[0_18px_50px_rgb(var(--shadow))] transition-colors hover:bg-[rgb(var(--surface))] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--accent))]">
+			<span>Menú<span data-current-section hidden></span></span>
+			<ChevronDownIcon class="size-4 shrink-0 transition-transform group-open:rotate-180" />
 		</summary>
 
 		<nav class="absolute left-0 right-0 top-14 z-20 hidden flex-col gap-1 rounded-[24px] border border-[rgb(var(--border))] bg-[rgb(var(--surface))] p-2 text-sm text-[rgb(var(--subtle))] shadow-[0_24px_70px_rgb(var(--shadow))] group-open:flex" aria-label="Navegación principal móvil">
 			{navigationItems.map((item) => (
 				<a
-					class="rounded-full px-3.5 py-2.5 no-underline transition-colors hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--text))] focus-visible:bg-[rgb(var(--surface))] focus-visible:text-[rgb(var(--text))] focus-visible:outline-none"
+					class="section-navigation-link px-3.5 py-2.5 no-underline transition-colors hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--text))] focus-visible:bg-[rgb(var(--surface))] focus-visible:text-[rgb(var(--text))] focus-visible:outline-none"
 					href={item.href}
 				>
 					{item.label}
@@ -26,7 +31,7 @@ import ThemeToggle from './ThemeToggle.astro';
 	<nav class="hidden min-w-0 flex-1 gap-1 overflow-x-auto whitespace-nowrap text-[0.95rem] text-[rgb(var(--subtle))] sm:flex" aria-label="Navegación principal">
 		{navigationItems.map((item) => (
 			<a
-				class="rounded-full px-3.5 py-2.5 no-underline transition-colors hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--text))] focus-visible:bg-[rgb(var(--surface))] focus-visible:text-[rgb(var(--text))] focus-visible:outline-none"
+				class="section-navigation-link px-3.5 py-2.5 no-underline transition-colors hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--text))] focus-visible:bg-[rgb(var(--surface))] focus-visible:text-[rgb(var(--text))] focus-visible:outline-none"
 				href={item.href}
 			>
 				{item.label}
@@ -38,7 +43,55 @@ import ThemeToggle from './ThemeToggle.astro';
 </div>
 
 <script>
-	const mobileMenu = document.querySelector<HTMLDetailsElement>('[data-mobile-menu]');
+	import { getActiveSection } from '../../utils/activeSection';
+
+	const navigation = document.querySelector<HTMLElement>('[data-top-navigation]');
+	const mobileMenu = navigation?.querySelector<HTMLDetailsElement>('[data-mobile-menu]');
+
+	if (navigation) {
+		const links = Array.from(navigation.querySelectorAll<HTMLAnchorElement>('.section-navigation-link'));
+		const sections = Array.from(new Set(links.map((link) => link.hash.slice(1))))
+			.map((id) => ({ id, element: document.getElementById(id) }))
+			.filter((section): section is { id: string; element: HTMLElement } => section.element !== null);
+		const currentLabel = navigation.querySelector<HTMLElement>('[data-current-section]');
+		let scheduled = false;
+
+		const updateActiveSection = () => {
+			scheduled = false;
+			const active = getActiveSection(
+				sections.map(({ id, element }) => ({ id, top: element.getBoundingClientRect().top + window.scrollY })),
+				window.scrollY,
+				navigation.closest<HTMLElement>('.site-navigation')?.getBoundingClientRect().height ?? navigation.getBoundingClientRect().height,
+				window.innerHeight,
+				document.documentElement.scrollHeight,
+				Number.parseFloat(getComputedStyle(document.documentElement).scrollPaddingTop) || 0,
+			);
+
+			for (const link of links) {
+				if (link.hash.slice(1) === active) {
+					link.setAttribute('aria-current', 'location');
+				} else {
+					link.removeAttribute('aria-current');
+				}
+			}
+			if (currentLabel) {
+				const label = links.find((link) => link.hash.slice(1) === active)?.textContent?.trim();
+				currentLabel.textContent = label ? ` · ${label}` : '';
+				currentLabel.hidden = !label;
+			}
+		};
+
+		const scheduleUpdate = () => {
+			if (!scheduled) {
+				scheduled = true;
+				window.requestAnimationFrame(updateActiveSection);
+			}
+		};
+		updateActiveSection();
+		window.addEventListener('scroll', scheduleUpdate, { passive: true });
+		window.addEventListener('resize', scheduleUpdate);
+		window.addEventListener('pageshow', scheduleUpdate);
+	}
 
 	if (mobileMenu) {
 		const closeMobileMenu = () => {
