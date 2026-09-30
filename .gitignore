@@ -25,3 +25,7 @@ pnpm-debug.log*
 
 # Local Pi runtime state
 .atl/
+.codegraph/
+
+# Local development progress
+odd/
