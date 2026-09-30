@@ -26,7 +26,7 @@ import DownloadIcon from '../icons/DownloadIcon.astro';
 					<a data-reveal class={className} href={item.href} download={item.download} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined}>
 						{item.label === 'Email' && <MailIcon class="size-5 sm:hidden" />}
 						{item.label === 'LinkedIn' && <LinkedInIcon class="size-5 sm:hidden" />}
-						{item.label === 'CV' && <DownloadIcon class="size-5 sm:hidden" />}
+						{item.label === 'CV' && <DownloadIcon class="size-6 sm:hidden" />}
 						<span class="sr-only sm:not-sr-only">{content}</span>
 					</a>
 				) : (
