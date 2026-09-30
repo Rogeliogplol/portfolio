@@ -1,5 +1,8 @@
 ---
 import { contactItems } from '../../data/portfolio';
+import MailIcon from '../icons/MailIcon.astro';
+import LinkedInIcon from '../icons/LinkedInIcon.astro';
+import DownloadIcon from '../icons/DownloadIcon.astro';
 ---
 
 <section id="contacto" class="full-bleed border-t border-[rgb(var(--border))] pt-11 sm:pt-16" aria-labelledby="contact-title">
@@ -17,11 +20,14 @@ import { contactItems } from '../../data/portfolio';
 		<div class="flex content-start flex-wrap gap-2.5" aria-label="Enlaces de contacto">
 			{contactItems.map((item) => {
 				const content = `${item.label} · ${item.value}`;
-				const className = "inline-flex min-h-10 items-center rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.66)] px-3.5 font-semibold text-[rgb(var(--text-soft))] no-underline transition-colors hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--text))] focus-visible:bg-[rgb(var(--surface))] focus-visible:text-[rgb(var(--text))] focus-visible:outline-none";
+				const className = "inline-flex min-h-11 min-w-11 items-center justify-center rounded-full border border-[rgb(var(--border))] bg-[rgb(var(--surface)/0.66)] px-3.5 font-semibold text-[rgb(var(--text-soft))] no-underline transition-colors hover:bg-[rgb(var(--surface))] hover:text-[rgb(var(--text))] focus-visible:bg-[rgb(var(--surface))] focus-visible:text-[rgb(var(--text))] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[rgb(var(--accent))] sm:min-h-10 sm:min-w-0";
 
 				return item.href ? (
 					<a data-reveal class={className} href={item.href} download={item.download} target={item.href.startsWith('http') ? '_blank' : undefined} rel={item.href.startsWith('http') ? 'noreferrer' : undefined}>
-						{content}
+						{item.label === 'Email' && <MailIcon class="size-5 sm:hidden" />}
+						{item.label === 'LinkedIn' && <LinkedInIcon class="size-5 sm:hidden" />}
+						{item.label === 'CV' && <DownloadIcon class="size-5 sm:hidden" />}
+						<span class="sr-only sm:not-sr-only">{content}</span>
 					</a>
 				) : (
 					<span data-reveal class={className}>{content}</span>
