@@ -8,27 +8,32 @@ export const navigationItems = [
 export const technologies = [
 	"HTML",
 	"CSS",
+	"Sass",
 	"Tailwind CSS",
 	"JavaScript",
-	"TypeScript",
-	"Next.js",
-	"React",
+	"jQuery",
 	"Vue",
-	"Nuxt.js",
+	"React",
+	"Vuex",
+	"Pinia",
+	"Redux",
+	"Nuxt",
+	"Next.js",
 	"PHP",
-	"Node.js",
+	"Mautic",
+	"Lumen",
 	"Laravel",
 	"Laravel Nova",
 	"Symfony",
+	"Node.js",
+	"TypeScript",
 	"Strapi",
-	"Mautic",
 	"MySQL",
 	"PostgreSQL",
 	"Mailjet",
 	"Amazon SES",
 	"Git",
 	"SSO",
-	"Headless CMS",
 ];
 
 export const profileParagraphs = [
@@ -44,18 +49,21 @@ export const experience = [
 		description:
 			"Participación en productos de marketing, automatización, gestión de contenidos y aplicaciones corporativas, con responsabilidades de liderazgo técnico en los últimos proyectos.",
 		technologies: [
-			"Google Ads", "Vue", "Vuex", "Apache Kafka", "Lumen", "Apache Cassandra", "Mautic",
-			"Amazon SES", "Mailjet", "Laravel Nova", "Git", "Ansible", "Nuxt.js",
-			"Next.js", "SSO", "Strapi", "Drupal", "Sitecore", "React Native", "Laravel", "PHP", "Node.js",
+			"HTML", "CSS", "Sass", "Tailwind CSS",
+			"JavaScript", "jQuery", "Vue", "React", "Vuex", "Pinia", "Redux", "Nuxt", "Next.js",
+			"PHP", "Mautic", "Lumen", "Laravel", "Laravel Nova",
+			"Node.js", "TypeScript", "Strapi",
+			"PostgreSQL", "MySQL",
+			"SSO", "Git", "Ansible", "Amazon SES", "Mailjet"
 		],
 		projects: [
-			"Herramienta para facilitar la creación y gestión de anuncios publicitarios, con una interfaz conectada a microservicios y almacenamiento de datos.",
+			"Herramienta para facilitar la creación y gestión de anuncios en Google Ads, con una interfaz conectada a microservicios y almacenamiento de datos.",
 			"Desarrollo de plugins para ampliar funcionalidades de una plataforma de automatización, incluida una integración de envío de correo como alternativa al servicio anterior.",
 			"Aplicación para gestionar clientes, plugins contratados y versiones del código, con actualizaciones por cliente o masivas y preparación de entornos.",
 			"Desarrollo de una web de servicios.",
-			"Liderazgo técnico en una aplicación para médicos de AstraZeneca orientada al análisis de posibles enfermedades raras: acceso con inicio de sesión único, importación masiva de publicaciones médicas, comparación configurable por pregunta, gestión de casos y cálculo en vivo de porcentajes de compatibilidad.",
-			"Proyectos de gestión de contenidos con interfaces integradas con distintos sistemas y creación de componentes reutilizables.",
-			"Liderazgo técnico del backend de una app de Hitachi con un sistema multipaís de puntos y recompensas configurable por rol, producto, acción de venta o instalación y país.",
+			"Tech Lead en una aplicación para médicos de AstraZeneca orientada al análisis de posibles enfermedades raras: login con SSO, importación masiva de publicaciones médicas, comparación configurable por pregunta, gestión de casos y cálculo en vivo de porcentajes de compatibilidad.",
+			"Proyectos Headless CMS usando Frameworks de Frontend modernos con creación de componentes reutilizables e integracion con Drupal, Sitecore y otros Backends.",
+			"Tech Lead del Backend de una app de Hitachi con un sistema multipaís de puntos y recompensas configurable por rol, producto, acción de venta o instalación y país.",
 			"Migración de una web a un nuevo sistema de gestión de contenidos, con modelado de entidades e importadores de datos configurables por credenciales de origen, relaciones y reglas por entidad.",
 		],
 	},
@@ -65,7 +73,10 @@ export const experience = [
 		company: "iEditorial",
 		description:
 			"Desarrollo de una plataforma interna de gestión de tareas y proyectos conectada con el contenido de cursos y másteres online.",
-		technologies: ["Vue", "Vuex", "PHP", "MySQL"],
+		technologies: [
+			"HTML", "CSS", "Sass", "JavaScript", "jQuery",
+			"Vue", "Vuex", "PHP", "MySQL"
+		],
 		projects: [
 			"Construcción de la interfaz para organizar tareas vinculadas a contenidos formativos.",
 			"Desarrollo de la lógica de proyectos, tareas y relaciones con cursos, con almacenamiento en base de datos.",
@@ -77,7 +88,7 @@ export const experience = [
 		company: "iEditorial",
 		description:
 			"Primera experiencia profesional en desarrollo web, con formación inicial y trabajo práctico en interfaces con filtros avanzados.",
-		technologies: ["HTML", "JavaScript", "jQuery", "Symfony"],
+		technologies: ["HTML", "CSS", "Sass", "JavaScript", "jQuery", "PHP", "Symfony"],
 		projects: [
 			"Desarrollo de la vista de un buscador de recursos con múltiples filtros y posterior adaptación al entorno de la aplicación.",
 		],
