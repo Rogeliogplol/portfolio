@@ -4,9 +4,9 @@ import { technologies } from '../../data/portfolio';
 
 <section class="full-bleed technology-section border-t border-[rgb(var(--border))] py-11 sm:py-16" aria-labelledby="technology-title">
 	<div class="section-inner">
-		<h2 id="technology-title" class="mb-6 text-xs font-bold uppercase tracking-[0.12em] text-[rgb(var(--accent))]">TECNOLOGÍAS</h2>
+		<h2 data-reveal id="technology-title" class="mb-6 text-xs font-bold uppercase tracking-[0.12em] text-[rgb(var(--accent))]">TECNOLOGÍAS</h2>
 	</div>
-	<div class="technology-marquee">
+	<div data-reveal class="technology-marquee">
 		<div class="technology-marquee-track">
 			<ul class="technology-marquee-group">
 				{technologies.map((technology) => <li><span class="technology-label">{technology}</span></li>)}
