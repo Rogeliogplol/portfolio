@@ -42,16 +42,21 @@ export const experience = [
 		role: "Full Stack Developer",
 		company: "ROI-UP Group / Azurally",
 		description:
-			"Participación en productos de marketing, automatización, headless CMS y aplicaciones corporativas, combinando frontend moderno, backend PHP/Node CMS y Tech Lead en los últimos proyectos.",
+			"Participación en productos de marketing, automatización, gestión de contenidos y aplicaciones corporativas, con responsabilidades de liderazgo técnico en los últimos proyectos.",
+		technologies: [
+			"Google Ads", "Vue", "Vuex", "Apache Kafka", "Lumen", "Apache Cassandra", "Mautic",
+			"Amazon SES", "Mailjet", "Laravel Nova", "Git", "Ansible", "Nuxt.js",
+			"Next.js", "SSO", "Strapi", "Drupal", "Sitecore", "React Native", "Laravel", "PHP", "Node.js",
+		],
 		projects: [
-			"Herramienta para facilitar la creación y gestión de anuncios en Google Ads, con frontend en Vue/Vuex, microservicios backend con Apache Kafka y Lumen, y persistencia en Apache Cassandra.",
-			"Desarrollo de plugins sobre Mautic para mejorar y ampliar funcionalidades, incluyendo una integración para envío de mailing mediante Amazon SES como alternativa a Mailjet.",
-			"Aplicación en Laravel Nova para gestionar clientes, plugins contratados y versiones de Git, permitiendo actualizar plugins por cliente o de forma masiva y levantar entornos con Ansible.",
-			"Web de servicios desarrollada con Nuxt.js.",
-			"Tech Lead en una aplicación para médicos de AstraZeneca orientada al análisis de posibles enfermedades raras: frontend Next.js con login SSO, backend Strapi, importación masiva de publicaciones médicas, matching configurable por pregunta, gestión de casos y cálculo en vivo de porcentajes de compatibilidad.",
-			"Proyectos Headless CMS con frontend en Next.js e integración con Drupal, Sitecore y otros backends, centrado en la creación de componentes reutilizables.",
-			"Tech Lead del Backend en Strapi para una app React Native de Hitachi con sistema multipaís de puntos y recompensas configurable por rol, producto, acción de venta o instalación y país.",
-			"Migración de una web desde una versión antigua de Laravel a Strapi, con modelado de entidades e importadores de base de datos configurables por credenciales de origen, relaciones y reglas por entidad.",
+			"Herramienta para facilitar la creación y gestión de anuncios publicitarios, con una interfaz conectada a microservicios y almacenamiento de datos.",
+			"Desarrollo de plugins para ampliar funcionalidades de una plataforma de automatización, incluida una integración de envío de correo como alternativa al servicio anterior.",
+			"Aplicación para gestionar clientes, plugins contratados y versiones del código, con actualizaciones por cliente o masivas y preparación de entornos.",
+			"Desarrollo de una web de servicios.",
+			"Liderazgo técnico en una aplicación para médicos de AstraZeneca orientada al análisis de posibles enfermedades raras: acceso con inicio de sesión único, importación masiva de publicaciones médicas, comparación configurable por pregunta, gestión de casos y cálculo en vivo de porcentajes de compatibilidad.",
+			"Proyectos de gestión de contenidos con interfaces integradas con distintos sistemas y creación de componentes reutilizables.",
+			"Liderazgo técnico del backend de una app de Hitachi con un sistema multipaís de puntos y recompensas configurable por rol, producto, acción de venta o instalación y país.",
+			"Migración de una web a un nuevo sistema de gestión de contenidos, con modelado de entidades e importadores de datos configurables por credenciales de origen, relaciones y reglas por entidad.",
 		],
 	},
 	{
@@ -60,9 +65,10 @@ export const experience = [
 		company: "iEditorial",
 		description:
 			"Desarrollo de una plataforma interna de gestión de tareas y proyectos conectada con el contenido de cursos y másteres online.",
+		technologies: ["Vue", "Vuex", "PHP", "MySQL"],
 		projects: [
-			"Construcción de la interfaz con Vue y Vuex para organizar tareas vinculadas a contenidos formativos.",
-			"Desarrollo backend en PHP puro con base de datos MySQL para dar soporte a la lógica de proyectos, tareas y relaciones con cursos.",
+			"Construcción de la interfaz para organizar tareas vinculadas a contenidos formativos.",
+			"Desarrollo de la lógica de proyectos, tareas y relaciones con cursos, con almacenamiento en base de datos.",
 		],
 	},
 	{
@@ -70,9 +76,10 @@ export const experience = [
 		role: "Prácticas Ícaro · Universidad de Granada",
 		company: "iEditorial",
 		description:
-			"Primera experiencia profesional en un entorno de desarrollo web, con formación inicial en Symfony y trabajo práctico en interfaces con filtros avanzados.",
+			"Primera experiencia profesional en desarrollo web, con formación inicial y trabajo práctico en interfaces con filtros avanzados.",
+		technologies: ["HTML", "JavaScript", "jQuery", "Symfony"],
 		projects: [
-			"Desarrollo de la vista de un buscador de recursos con múltiples filtros, primero en HTML, JavaScript y jQuery, y posteriormente adaptado a Symfony.",
+			"Desarrollo de la vista de un buscador de recursos con múltiples filtros y posterior adaptación al entorno de la aplicación.",
 		],
 	},
 ];

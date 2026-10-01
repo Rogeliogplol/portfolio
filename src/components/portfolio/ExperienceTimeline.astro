@@ -13,6 +13,9 @@ import { experience } from '../../data/portfolio';
 					<div>
 						<p class="mb-2 text-[0.95rem] font-bold text-[rgb(var(--accent))]">{item.period}</p>
 						<strong class="block text-lg text-[rgb(var(--text))]">{item.company}</strong>
+						<p class="mt-2 break-words text-sm leading-relaxed text-[rgb(var(--muted))]">
+							<span class="font-semibold">Tecnologías:</span> {item.technologies.join(' · ')}
+						</p>
 					</div>
 					<div>
 						<h3 class="mb-3 text-2xl font-bold tracking-[-0.02em] text-[rgb(var(--text))]">{item.role}</h3>
